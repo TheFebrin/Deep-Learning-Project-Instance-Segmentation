@@ -1,0 +1,13 @@
+kubernetes
+google-cloud-storage==1.16.1
+google-cloud-datastore==1.8.0
+google-cloud-logging==1.11.0
+
+Pillow==7
+numpy
+pandas
+torch==1.4
+torchvision==0.5
+opencv-python
+flask
+influxdb
