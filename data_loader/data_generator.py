@@ -1,5 +1,5 @@
 import numpy as np
-
+rom PIL import Image
 
 class DataGenerator:
     def __init__(self, config):

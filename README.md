@@ -23,11 +23,11 @@ Our goal is to create an instance segmentation model based on the Oxford-IIIT Pe
 
 Instance segmentation is a task in Computer Vision that aims to identify each instance of each object within the image at the pixel level. In our case, each image contains a single object, which means our goal is to predict which pixels belong to the object and which to the background as well as predict the object's class.
 
-Our dataset contains ~200 images for each from 37 classes. 
+Our dataset contains ~200 images for each from 37 classes.
 
 ![image](/figures/class-distribution.png)
 
-Near 2/3 of those classes are dog breeds, the rest of them are cat breeds. 
+Near 2/3 of those classes are dog breeds, the rest of them are cat breeds.
 
 ![image](/figures/species-distribution.png)
 
@@ -40,14 +40,26 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 --------------
 ## Quick start
 ```
-workon <Name>
-```
-```
-mkvirtualenv -p /usr/local/bin/python3.8 <Name>
-pip install -r requirements.txt
+pip3 install --upgrade pip
 ```
 
-TODO
+```
+mkvirtualenv -p <path to python3> <name>
+workon <name>
+```
+
+For example:
+
+```
+mkvirtualenv -p /usr/bin/python3.8 Febrin
+workon Febrin
+```
+
+Then
+
+```
+pip3 install -r requirements.txt
+```
 
 --------------
 ## Project architecture

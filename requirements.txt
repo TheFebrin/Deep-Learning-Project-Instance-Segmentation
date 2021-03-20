@@ -6,8 +6,9 @@ google-cloud-logging==1.11.0
 Pillow==7
 numpy
 pandas
-torch==1.4
+torch==1.4.0
 torchvision==0.5
 opencv-python
 flask
 influxdb
+tensorflow
