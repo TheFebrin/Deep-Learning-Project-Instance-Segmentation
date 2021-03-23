@@ -12,3 +12,4 @@ opencv-python
 flask
 influxdb
 tensorflow
+sklearn
