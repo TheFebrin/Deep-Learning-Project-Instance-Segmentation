@@ -2,8 +2,8 @@
 Oxford-IIIT Pet Dataset - Instance Segmentation
 
 ## Table of contents
-* [General info](#general-info)
 * [Quick start](#quick-start)
+* [General info](#general-info)
 * [Project architecture](#project-architecture)
 * [Folder structure](#folder-structure)
 * [Main Components](#main-components)
@@ -16,26 +16,6 @@ Oxford-IIIT Pet Dataset - Instance Segmentation
 * [Status](#status)
 * [Credits](#credits)
 
---------------
-## General info
-
-Our goal is to create an instance segmentation model based on the Oxford-IIIT Pet Dataset.
-
-Instance segmentation is a task in Computer Vision that aims to identify each instance of each object within the image at the pixel level. In our case, each image contains a single object, which means our goal is to predict which pixels belong to the object and which to the background as well as predict the object's class.
-
-Our dataset contains ~200 images for each from 37 classes.
-
-![image](/figures/class-distribution.png)
-
-Near 2/3 of those classes are dog breeds, the rest of them are cat breeds.
-
-![image](/figures/species-distribution.png)
-
-The images have different sizes and rations, therefore they need to be resized. There's a high variance in background colors and the amount of light on the pictures.
-
-![image](/figures/class-samples.png)
-
-We will build our model using [MMDetection](https://github.com/open-mmlab/mmdetection) - an open-source object detection toolbox based on PyTorch. We will experiment with different types of backbones, for example, ResNet, ResNext, or VGG.
 
 --------------
 ## Quick start
@@ -61,6 +41,34 @@ Then
 pip3 install -r requirements.txt
 ```
 
+To divide dataset into train/test/valid folders:
+```
+python dataset/divide_dataset.py --datapoints-path=../images --labels-path=../annotations/trimaps \
+    --datapoints-extention=.jpg --labels-extention=.png --valid=True --train-ratio=0.7
+```
+
+
+--------------
+## General info
+
+Our goal is to create an instance segmentation model based on the Oxford-IIIT Pet Dataset.
+
+Instance segmentation is a task in Computer Vision that aims to identify each instance of each object within the image at the pixel level. In our case, each image contains a single object, which means our goal is to predict which pixels belong to the object and which to the background as well as predict the object's class.
+
+Our dataset contains ~200 images for each from 37 classes.
+
+![image](/figures/class-distribution.png)
+
+Near 2/3 of those classes are dog breeds, the rest of them are cat breeds.
+
+![image](/figures/species-distribution.png)
+
+The images have different sizes and rations, therefore they need to be resized. There's a high variance in background colors and the amount of light on the pictures.
+
+![image](/figures/class-samples.png)
+
+We will build our model using [MMDetection](https://github.com/open-mmlab/mmdetection) - an open-source object detection toolbox based on PyTorch. We will experiment with different types of backbones, for example, ResNet, ResNext, or VGG.
+
 --------------
 ## Project architecture
 
@@ -74,26 +82,31 @@ pip3 install -r requirements.txt
 ## Folder structure
 
 ```
-├──  base
-│   ├── base_model.py   - this file contains the abstract class of the model.
-│   └── base_train.py   - this file contains the abstract class of the trainer.
+├──  /base
+│   ├── base_model.py     - this file contains the abstract class of the model.
+│   └── base_train.py     - this file contains the abstract class of the trainer.
 │
 │
-├── model               - this folder contains any model of your project.
+├── /model                 - this folder contains any model of your project.
 │   └── example_model.py
 │
 │
-├── trainer             - this folder contains trainers of your project.
+├── /trainer               - this folder contains trainers of your project.
 │   └── example_trainer.py
 │   
-├──  mains              - here's the main(s) of your project (you may need more than one main).
-│    └── example_main.py  - here's an example of main that is responsible for the whole pipeline.
-
+├──  /mains                - the main(s) of your project (you may need more than one main).
+│    └── example_main.py  - example of main that is responsible for the whole pipeline.
 │  
-├──  data _loader  
-│    └── data_generator.py  - here's the data_generator that is responsible for all data handling.
+├──  /data _loader  
+│    └── data_generator.py - data_generator that is responsible for all data handling.
+│   
+├──  /dataset               - things related to the dataset
+│    ├── /train            - train datapoints and labels
+│    ├── /test             - test datapoints and labels
+│    ├── /valid            - valid datapoints and labels
+│    └── divide_dataset.py - script that divides the dataset into /train/test/valid
 │
-└── utils
+└── /utils
      ├── logger.py
      └── any_other_utils_you_need
 
