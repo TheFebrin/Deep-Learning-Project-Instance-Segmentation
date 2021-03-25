@@ -95,12 +95,12 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 │   └── example_trainer.py
 │   
 ├──  /mains                - the main(s) of your project (you may need more than one main).
-│    └── example_main.py  - example of main that is responsible for the whole pipeline.
+│    └── example_main.py   - example of main that is responsible for the whole pipeline.
 │  
-├──  /data _loader  
-│    └── data_generator.py - data_generator that is responsible for all data handling.
+├──  /data_loader  
+│    └── data_loader.py    - creates a data_loader
 │   
-├──  /dataset               - things related to the dataset
+├──  /dataset              - things related to the dataset
 │    ├── /train            - train datapoints and labels
 │    ├── /test             - test datapoints and labels
 │    ├── /valid            - valid datapoints and labels
