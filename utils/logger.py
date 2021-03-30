@@ -5,15 +5,17 @@ from mmcv.runner.hooks import LoggerHook
 @HOOKS.register_module()
 class CometMLLoggerHook(LoggerHook):
 
-    def __init__(self,
-                 api_key=None,
-                 project_name=None,
-                 hyper_params=None,
-                 import_comet=False,
-                 interval=10,
-                 ignore_last=True,
-                 reset_flag=True,
-                 by_epoch=True):
+    def __init__(
+         self,
+         api_key=None,
+         project_name=None,
+         hyper_params=None,
+         import_comet=False,
+         interval=10,
+         ignore_last=True,
+         reset_flag=True,
+         by_epoch=True
+    ):
         """Class to log metrics to Comet ML.
         It requires `comet_ml` to be installed.
         Args:
