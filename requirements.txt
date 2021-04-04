@@ -3,7 +3,7 @@ google-cloud-storage==1.16.1
 google-cloud-datastore==1.8.0
 google-cloud-logging==1.11.0
 
-Pillow==7
+Pillow
 numpy
 pandas
 torch==1.4.0
@@ -13,3 +13,4 @@ flask
 influxdb
 tensorflow
 sklearn
+mmcv-full
