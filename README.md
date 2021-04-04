@@ -115,6 +115,35 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 ## Main Components
 
 --------------
+### Task structure
+
+Task is a .yaml file that describes the training process alongside with data preparation.
+```yaml
+main: 'mains.train_and_eval'
+args:
+  
+  data_loader:
+    loader_module: 'data_loader.data_loader'
+    batch_size: 10
+    num_workers: 4
+
+  model_module: 'models.sample_model'
+  model:
+    learning_rate: 0.001
+
+  trainer_module: 'trainers.train'
+  trainer_train:
+    n_epoch: 30
+```
+
+--------------
+### Dataset
+
+After running the script `/dataset/divide_dataset.py`,
+the dataset will be prepared in the same folder.
+
+
+--------------
 ### Models
 - #### **Base model**
 
