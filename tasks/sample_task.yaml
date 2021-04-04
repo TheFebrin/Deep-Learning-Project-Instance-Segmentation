@@ -1,0 +1,15 @@
+main: 'mains.train_and_eval'
+args:
+
+  data_loader:
+    loader_module: 'data_loader.data_loader'
+    batch_size: 10
+    num_workers: 4
+
+  model_module: 'models.sample_model'
+  model:
+    learning_rate: 0.001
+
+  trainer_module: 'trainers.train'
+  trainer_train:
+    n_epoch: 30
