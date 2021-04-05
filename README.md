@@ -19,6 +19,7 @@ Oxford-IIIT Pet Dataset - Instance Segmentation
 
 --------------
 ## Quick start
+
 ```
 pip3 install --upgrade pip
 ```
@@ -35,11 +36,20 @@ mkvirtualenv -p /usr/bin/python3.8 Febrin
 workon Febrin
 ```
 
-Then
+Install requirements
 
 ```
 pip3 install -r requirements.txt
 ```
+
+Install [mmdetection](https://github.com/open-mmlab/mmdetection)
+```
+rm -rf mmdetection
+git clone https://github.com/open-mmlab/mmdetection.git
+cd mmdetection
+pip install -e .
+```
+
 
 To divide dataset into train/test/valid folders:
 ```

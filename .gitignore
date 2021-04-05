@@ -8,6 +8,7 @@ __pycache__/
 .idea/
 
 # Our Folders
+mmdetection/
 annotations/
 images/
 test/

@@ -1,4 +1,3 @@
-kubernetes
 google-cloud-storage==1.16.1
 google-cloud-datastore==1.8.0
 google-cloud-logging==1.11.0
@@ -9,8 +8,5 @@ pandas
 torch==1.4.0
 torchvision==0.5
 opencv-python
-flask
-influxdb
-tensorflow
 sklearn
 mmcv-full
