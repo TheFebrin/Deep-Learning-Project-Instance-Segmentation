@@ -3,5 +3,3 @@ services:
   deep-learning:
     container_name: instance-segmentation
     build: .
-    ports:
-     - "8080:80"
