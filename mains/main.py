@@ -8,6 +8,7 @@ from mmcv.runner.hooks import LoggerHook
 from mmcv import Config
 
 import numpy as np
+import comet_ml
 
 from mmdet.datasets.builder import DATASETS
 from mmdet.datasets.custom import CustomDataset
