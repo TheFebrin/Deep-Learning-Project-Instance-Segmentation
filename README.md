@@ -20,39 +20,60 @@ Oxford-IIIT Pet Dataset - Instance Segmentation
 --------------
 ## Quick start
 
-```
+Nice virtualenv tutorial [here](https://computingforgeeks.com/fix-mkvirtualenv-command-not-found-ubuntu/)
+```bash
 pip3 install --upgrade pip
 ```
 
-```
+```bash
+which python3.8
 mkvirtualenv -p <path to python3> <name>
 workon <name>
 ```
 
 For example:
 
-```
+```bash
 mkvirtualenv -p /usr/bin/python3.8 Febrin
 workon Febrin
 ```
 
 Install requirements
 
-```
+```bash
 pip3 install -r requirements.txt
 ```
 
 Install [mmdetection](https://github.com/open-mmlab/mmdetection)
-```
+with [mmcv](https://github.com/open-mmlab/mmdetection/blob/master/docs/get_started.md)
+```bash
 rm -rf mmdetection
 git clone https://github.com/open-mmlab/mmdetection.git
 cd mmdetection
 pip install -e .
 ```
 
+In our case we use `torch 1.8.0` and `Cuda 11.1`
+```bash
+$ nvidia-smi
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+```
+Install correct pytorch
+```bash
+pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+```
+
+So this is matching mmcv
+```bash
+pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html
+```
+
+--------------
 
 To divide dataset into train/test/valid folders:
-```
+```bash
 python dataset/divide_dataset.py --datapoints-path=../images --labels-path=../annotations/trimaps \
     --datapoints-extention=.jpg --labels-extention=.png --valid=True --train-ratio=0.7
 ```
