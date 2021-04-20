@@ -5,21 +5,18 @@ from mmcv.runner.hooks import LoggerHook
 @HOOKS.register_module()
 class CometMLLoggerHook(LoggerHook):
 
-    def __init__(
-         self,
-         api_key=None,
-         project_name=None,
-         hyper_params=None,
-         import_comet=False,
-         interval=10,
-         ignore_last=True,
-         reset_flag=True,
-         by_epoch=True
-    ):
+    def __init__(self,
+                 project_name=None,
+                 hyper_params=None,
+                 import_comet=True,
+                 interval=10,
+                 ignore_last=True,
+                 reset_flag=True,
+                 by_epoch=True,
+                 api_key=None):
         """Class to log metrics to Comet ML.
         It requires `comet_ml` to be installed.
         Args:
-            api_key (str, optional): Your API key obtained from comet.ml
             project_name (str, optional):
                 Send your experiment to a specific project. 
                 Otherwise will be sent to Uncategorized Experiments. 
@@ -38,11 +35,12 @@ class CometMLLoggerHook(LoggerHook):
         """
         super(CometMLLoggerHook, self).__init__(interval, ignore_last,
                                                 reset_flag, by_epoch)
+        self._import_comet = import_comet
         if import_comet:
             self.import_comet()
-        self.api_key = api_key
         self.project_name = project_name
         self.hyper_params = hyper_params
+        self._api_key = api_key
 
     def import_comet(self):
         try:
@@ -54,10 +52,16 @@ class CometMLLoggerHook(LoggerHook):
 
     @master_only
     def before_run(self, runner):
-        self.experiment = comet_ml.Experiment(
-            api_key=self.api_key,
-            project_name=self.project_name,
-        )
+        if self._import_comet:
+            self.experiment = self.comet_ml.Experiment(
+                api_key=self._api_key,
+                project_name=self.project_name,
+            )
+        else:
+            self.experiment = comet_ml.Experiment(
+                api_key=self._api_key,
+                project_name=self.project_name,
+            )
         if self.hyper_params is not None:
             self.experiment.log_parameters(self.hyper_params)
 
