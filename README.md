@@ -49,6 +49,11 @@ Install requirements
 pip3 install -r requirements.txt
 ```
 
+Download dataset and models
+```bash
+python download.py
+```
+
 Install [mmdetection](https://github.com/open-mmlab/mmdetection)
 with [mmcv](https://github.com/open-mmlab/mmdetection/blob/master/docs/get_started.md)
 ```bash
