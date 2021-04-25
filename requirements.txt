@@ -1,12 +1,4 @@
-google-cloud-storage==1.16.1
-google-cloud-datastore==1.8.0
-google-cloud-logging==1.11.0
-
 Pillow==7.0.0
-numpy==1.20.0
+numpy
 pandas
-matplotlib==3.1.1
-opencv-python
 sklearn
-mmcv-full
-comet_ml
