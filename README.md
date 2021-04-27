@@ -122,6 +122,7 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 │
 ├── /trainer               - training scripts
 │   └── train.py
+|   └── test.py
 │   
 ├──  /mains                - main files responsible for the whole pipeline
 │    └── main.py 
