@@ -201,7 +201,7 @@ Project started: _09.03.2021_
     * Moved our code from Colab files to Python scripts
     * Created Docerfile to be used as an environment created inside Colab
 
-Project started: _27.04.2021_
+Project ended: _27.04.2021_
 
 
 
