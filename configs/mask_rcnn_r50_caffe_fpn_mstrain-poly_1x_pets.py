@@ -167,7 +167,7 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type='CocoDataset',
-        ann_file='Deep-Learning-Project-Instance-Segmentation/datasets/pets-train-coco-format.json',
+        ann_file='Deep-Learning-Project-Instance-Segmentation/dataset/pets-train-coco-format.json',
         img_prefix='Deep-Learning-Project-Instance-Segmentation/images/',
         pipeline=[
             dict(type='LoadImageFromFile'),
@@ -207,7 +207,7 @@ data = dict(
                  'yorkshire_terrier')),
     val=dict(
         type='CocoDataset',
-        ann_file='Deep-Learning-Project-Instance-Segmentation/datasets/pets-test-coco-format.json',
+        ann_file='Deep-Learning-Project-Instance-Segmentation/dataset/pets-test-coco-format.json',
         img_prefix='Deep-Learning-Project-Instance-Segmentation/images/',
         pipeline=[
             dict(type='LoadImageFromFile'),
@@ -241,7 +241,7 @@ data = dict(
                  'yorkshire_terrier')),
     test=dict(
         type='CocoDataset',
-        ann_file='Deep-Learning-Project-Instance-Segmentation/datasets/pets-test-coco-format.json',
+        ann_file='Deep-Learning-Project-Instance-Segmentation/dataset/pets-test-coco-format.json',
         img_prefix='Deep-Learning-Project-Instance-Segmentation/images/',
         pipeline=[
             dict(type='LoadImageFromFile'),
