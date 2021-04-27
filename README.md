@@ -163,6 +163,13 @@ Here's how it looks after you start training:
 
 </div>
 
+You can also compare experiments with each other.
+<div align="center">
+
+![image](/figures/comet_comparison1.png)
+
+</div>
+
 You can also link your Github repository to your comet.ml project for full version control.
 [Here's a live page showing the example from this repo](https://www.comet.ml/gidim/tensorflow-project-template/caba580d8d1547ccaed982693a645507/chart)
 
