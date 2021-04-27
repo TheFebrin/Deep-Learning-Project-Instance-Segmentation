@@ -174,6 +174,24 @@ You can also link your Github repository to your comet.ml project for full versi
 ## Status
 Project started: _09.03.2021_
 
+1. Week 1:
+    * Created the repository
+    * Analyzed the dataset
+    * Investigated data storing options (GCS) and model training (GCP machine)
+    * Created a Kanban board where we track the tasks and progress.
+
+2. Week 2:
+    * Created a markdown that explains what are we doing, short documentation with the description of the task
+    * Preprocessed the data
+    * Created folder skeleton on GitHub 
+    * Explored how to train a model on cloud
+    * 
+
+    * 
+
+
+4. 
+
 --------------
 ## Credits
 
