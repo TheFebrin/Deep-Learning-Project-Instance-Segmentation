@@ -118,7 +118,7 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 ```
 ├── /model                 - folder for keeping models
 │   └── simple_cnn_model.py
-│   └── ...
+│   └── download_model.py  - script for downloading dataset
 │
 ├── /trainer               - training scripts
 │   └── train.py
@@ -126,10 +126,15 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 │   
 ├──  /mains                - main files responsible for the whole pipeline
 │    └── main.py 
-│  
-├──  /data_loader  
-│    └── data_loader.py    - creates a data_loader
-│   
+│ 
+├──  /notebooks            - notebook files created for tests on Colaboratory
+│    ├── /Convert_to_COCO_format.ipynb
+│    ├── /Create_config.ipynb
+│    ├── /Demo training.ipynb
+│    ├── /Demo.ipynb
+│    ├── /Pycoco-test.ipynb
+│    └── /Data_analysis.ipynb
+| 
 ├──  /dataset              - things related to the dataset
 │    ├── /train            - train datapoints and labels
 │    ├── /test             - test datapoints and labels
