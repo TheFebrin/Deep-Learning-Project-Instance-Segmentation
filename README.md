@@ -43,15 +43,27 @@ mkvirtualenv -p /usr/bin/python3.8 Febrin
 workon Febrin
 ```
 
-Install requirements
+Ensure that you have properly installed all the required packages:
+- CUDA 11.0
+- GCC 7.5
+- torch 1.7.1+cu110
+- torchvision 0.8.2+cu110
+- Comet ML 3.9.0
+- OpenCV: 4.1.2
+- MMCV: 1.3.1
+- MMDetection: 2.11.0+187774b
 
+In our case we use `torch 1.7.1` and `Cuda 11.0`
 ```bash
-pip3 install -r requirements.txt
+$ nvidia-smi
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+
 ```
-
-Download dataset and models
+Install correct pytorch
 ```bash
-python download.py
+pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 Install [mmdetection](https://github.com/open-mmlab/mmdetection)
@@ -63,32 +75,22 @@ cd mmdetection
 pip install -e .
 ```
 
-In our case we use `torch 1.8.0` and `Cuda 11.1`
-```bash
-$ nvidia-smi
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
-|-------------------------------+----------------------+----------------------+
-```
-Install correct pytorch
-```bash
-pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
-```
 
 So this is matching mmcv
 ```bash
-pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html
+pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu110/torch1.7.0/index.html
 ```
 
---------------
-## Useful commands
-
-To divide dataset into train/test/valid folders:
+Download dataset and models
 ```bash
-python dataset/divide_dataset.py --datapoints-path=../images --labels-path=../annotations/trimaps \
-    --datapoints-extention=.jpg --labels-extention=.png --valid=True --train-ratio=0.7
+python download.py
 ```
 
+Test Your own images
+```bash
+python inference.py image.jpg
+```
+![image](/figures/test_img_res1.png)
 
 --------------
 ## General info
@@ -117,18 +119,26 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 
 ```
 ├── /model                 - folder for keeping models
-│   └── simple_cnn_model.py
-│   └── ...
+│   └── download_model.py  - script for downloading dataset
 │
 ├── /trainer               - training scripts
 │   └── train.py
+|   └── test.py
 │   
 ├──  /mains                - main files responsible for the whole pipeline
 │    └── main.py 
-│  
-├──  /data_loader  
-│    └── data_loader.py    - creates a data_loader
-│   
+|
+├──  /figures              - figures generated during analysis and used in README
+│    └── ...
+│ 
+├──  /notebooks            - notebook files created for tests on Colaboratory
+│    ├── /Convert_to_COCO_format.ipynb
+│    ├── /Create_config.ipynb
+│    ├── /Demo training.ipynb
+│    ├── /Demo.ipynb
+│    ├── /Pycoco-test.ipynb
+│    └── /Data_analysis.ipynb
+| 
 ├──  /dataset              - things related to the dataset
 │    ├── /train            - train datapoints and labels
 │    ├── /test             - test datapoints and labels
@@ -142,27 +152,17 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 
 ## Main Components
 
---------------
-### Dataset
-
-After running the script `/dataset/divide_dataset.py`,
-the dataset will be prepared in the same folder.
-
 
 --------------
 ### Comet.ml logger
 
 This template also supports reporting to Comet.ml which allows you to see all your hyper-params, metrics, graphs, dependencies and more including real-time metric.
 
-Add your API key [in the configuration file](configs/example.json#L9):
-
-
-For example:  `"comet_api_key": "your key here"`
 
 Here's how it looks after you start training:
 <div align="center">
 
-<img align="center" width="800" src="https://comet-ml.nyc3.digitaloceanspaces.com/CometDemo.gif">
+![image](/figures/comet2.png)
 
 </div>
 
@@ -172,6 +172,37 @@ You can also link your Github repository to your comet.ml project for full versi
 --------------
 ## Status
 Project started: _09.03.2021_
+
+1. Week 1:
+    * Created the repository
+    * Analyzed the dataset
+    * Investigated data storing options (GCS) and model training (GCP machine)
+    * Created a Kanban board where we track the tasks and progress.
+
+2. Week 2:
+    * Downloaded the data and created a dataloader
+    * Started to familiarize ourselves with mmdet environment
+    * Tested CometML and played with it
+    * Created requirements.txt
+
+3. Week 3:
+    * Created our own CometML logger hook and integrated it with their API
+    * Created a proper DataLoader
+    * Started writing a mmdet notebook that will transition to train.py soon
+    * Read some papers i.e. Feature Pyramid Network
+
+4. Week 4:
+    * Validated our coco using: https://github.com/cocodataset/cocoapi/tree/master/PythonAPI/pycocotools
+    * Cleaned the repo and README
+    *  Train on the second model to show that COMET ML
+
+5. Week 5:
+    * Moved our code from Colab files to Python scripts
+    * Created Docerfile to be used as an environment created inside Colab
+
+Project ended: _27.04.2021_
+
+
 
 --------------
 ## Credits
