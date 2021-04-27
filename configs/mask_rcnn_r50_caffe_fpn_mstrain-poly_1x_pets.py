@@ -295,4 +295,4 @@ load_from = 'Deep-Learning-Project-Instance-Segmentation/models/mask_rcnn_r50_ca
 resume_from = None
 workflow = [('train', 1)]
 custom_imports = dict(
-    imports=['Deep-Learning-Project-Instance-Segmentation.logger'], allow_failed_imports=False)
+    imports=['Deep-Learning-Project-Instance-Segmentation.utils.logger'], allow_failed_imports=False)
