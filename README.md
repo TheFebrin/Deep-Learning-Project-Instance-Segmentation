@@ -155,10 +155,6 @@ the dataset will be prepared in the same folder.
 
 This template also supports reporting to Comet.ml which allows you to see all your hyper-params, metrics, graphs, dependencies and more including real-time metric.
 
-Add your API key [in the configuration file](configs/example.json#L9):
-
-
-For example:  `"comet_api_key": "your key here"`
 
 Here's how it looks after you start training:
 <div align="center">
