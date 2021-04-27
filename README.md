@@ -143,12 +143,6 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 
 ## Main Components
 
---------------
-### Dataset
-
-After running the script `/dataset/divide_dataset.py`,
-the dataset will be prepared in the same folder.
-
 
 --------------
 ### Comet.ml logger
