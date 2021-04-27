@@ -181,16 +181,27 @@ Project started: _09.03.2021_
     * Created a Kanban board where we track the tasks and progress.
 
 2. Week 2:
-    * Created a markdown that explains what are we doing, short documentation with the description of the task
-    * Preprocessed the data
-    * Created folder skeleton on GitHub 
-    * Explored how to train a model on cloud
-    * 
+    * Downloaded the data and created a dataloader
+    * Started to familiarize ourselves with mmdet environment
+    * Tested CometML and played with it
+    * Created requirements.txt
 
-    * 
+3. Week 3:
+    * Created our own CometML logger hook and integrated it with their API
+    * Created a proper DataLoader
+    * Started writing a mmdet notebook that will transition to train.py soon
+    * Read some papers i.e. Feature Pyramid Network
+
+4. Week 4:
+    * Validated our coco using: https://github.com/cocodataset/cocoapi/tree/master/PythonAPI/pycocotools
+    * Cleaned the repo and README
+    *  Train on the second model to show that COMET ML
+
+5. Week 5:
+    * Moved our code from Colab files to Python scripts
+    * Created Docerfile to be used as an environment created inside Colab
 
 
-4. 
 
 --------------
 ## Credits
