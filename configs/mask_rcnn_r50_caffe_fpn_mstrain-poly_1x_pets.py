@@ -167,8 +167,8 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type='CocoDataset',
-        ann_file='pets-train-coco-format.json',
-        img_prefix='images/',
+        ann_file='Deep-Learning-Project-Instance-Segmentation/datasets/pets-train-coco-format.json',
+        img_prefix='Deep-Learning-Project-Instance-Segmentation/datasets/images/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
@@ -207,8 +207,8 @@ data = dict(
                  'yorkshire_terrier')),
     val=dict(
         type='CocoDataset',
-        ann_file='pets-test-coco-format.json',
-        img_prefix='images/',
+        ann_file='Deep-Learning-Project-Instance-Segmentation/datasets/pets-test-coco-format.json',
+        img_prefix='Deep-Learning-Project-Instance-Segmentation/datasets/images/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
@@ -241,8 +241,8 @@ data = dict(
                  'yorkshire_terrier')),
     test=dict(
         type='CocoDataset',
-        ann_file='pets-test-coco-format.json',
-        img_prefix='images/',
+        ann_file='Deep-Learning-Project-Instance-Segmentation/datasets/pets-test-coco-format.json',
+        img_prefix='Deep-Learning-Project-Instance-Segmentation/datasets/images/',
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(
@@ -291,8 +291,8 @@ log_config = dict(
 custom_hooks = [dict(type='NumClassCheckHook')]
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = 'checkpoints/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth'
+load_from = 'Deep-Learning-Project-Instance-Segmentation/models/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth'
 resume_from = None
 workflow = [('train', 1)]
 custom_imports = dict(
-    imports=['mmdet.core.utils.comet_logger_hook'], allow_failed_imports=False)
+    imports=['Deep-Learning-Project-Instance-Segmentation.logger'], allow_failed_imports=False)
