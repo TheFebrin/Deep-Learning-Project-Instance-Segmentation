@@ -86,6 +86,12 @@ Download dataset and models
 python download.py
 ```
 
+Test Your own images
+```bash
+python inference.py image.jpg
+```
+![image](/figures/test_img_res1.png)
+
 --------------
 ## General info
 
