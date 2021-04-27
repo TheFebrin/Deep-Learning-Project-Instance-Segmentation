@@ -163,7 +163,7 @@ For example:  `"comet_api_key": "your key here"`
 Here's how it looks after you start training:
 <div align="center">
 
-<img align="center" width="800" src="https://comet-ml.nyc3.digitaloceanspaces.com/CometDemo.gif">
+![image](/figures/comet2.png)
 
 </div>
 
