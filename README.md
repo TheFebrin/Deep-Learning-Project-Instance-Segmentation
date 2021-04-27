@@ -117,7 +117,6 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 
 ```
 ├── /model                 - folder for keeping models
-│   └── simple_cnn_model.py
 │   └── download_model.py  - script for downloading dataset
 │
 ├── /trainer               - training scripts
