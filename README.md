@@ -43,15 +43,27 @@ mkvirtualenv -p /usr/bin/python3.8 Febrin
 workon Febrin
 ```
 
-Install requirements
+Ensure that you have properly installed all the required packages:
+- CUDA 11.0
+- GCC 7.5
+- torch 1.7.1+cu110
+- torchvision 0.8.2+cu110
+- Comet ML 3.9.0
+- OpenCV: 4.1.2
+- MMCV: 1.3.1
+- MMDetection: 2.11.0+187774b
 
+In our case we use `torch 1.7.1` and `Cuda 11.0`
 ```bash
-pip3 install -r requirements.txt
+$ nvidia-smi
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+
 ```
-
-Download dataset and models
+Install correct pytorch
 ```bash
-python download.py
+pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 Install [mmdetection](https://github.com/open-mmlab/mmdetection)
@@ -63,32 +75,16 @@ cd mmdetection
 pip install -e .
 ```
 
-In our case we use `torch 1.8.0` and `Cuda 11.1`
-```bash
-$ nvidia-smi
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
-|-------------------------------+----------------------+----------------------+
-```
-Install correct pytorch
-```bash
-pip install torch==1.8.0+cu111 torchvision==0.9.0+cu111 torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
-```
 
 So this is matching mmcv
 ```bash
-pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html
+pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu110/torch1.7.0/index.html
 ```
 
---------------
-## Useful commands
-
-To divide dataset into train/test/valid folders:
+Download dataset and models
 ```bash
-python dataset/divide_dataset.py --datapoints-path=../images --labels-path=../annotations/trimaps \
-    --datapoints-extention=.jpg --labels-extention=.png --valid=True --train-ratio=0.7
+python download.py
 ```
-
 
 --------------
 ## General info
