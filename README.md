@@ -127,6 +127,9 @@ We will build our model using [MMDetection](https://github.com/open-mmlab/mmdete
 │   
 ├──  /mains                - main files responsible for the whole pipeline
 │    └── main.py 
+|
+├──  /figures              - figures generated during analysis and used in README
+│    └── ...
 │ 
 ├──  /notebooks            - notebook files created for tests on Colaboratory
 │    ├── /Convert_to_COCO_format.ipynb
@@ -160,13 +163,6 @@ Here's how it looks after you start training:
 <div align="center">
 
 ![image](/figures/comet2.png)
-
-</div>
-
-You can also compare experiments with each other.
-<div align="center">
-
-![image](/figures/comet_comparison1.png)
 
 </div>
 
